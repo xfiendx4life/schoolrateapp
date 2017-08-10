@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">SchoolRate</string>
-    <string name="title_activity_main_app_screen">MainAppScreenActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_main_app_screen">Рейтинг</string>
+    <string name="title_home">Рейтинг</string>
+    <string name="title_dashboard">Алфавитный сисок</string>
+    <string name="title_notifications">Чат со специалистом</string>
     <string name="welcome_string">Welcome To</string>
 </resources>

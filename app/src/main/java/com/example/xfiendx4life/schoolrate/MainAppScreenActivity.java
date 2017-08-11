@@ -41,6 +41,7 @@ public class MainAppScreenActivity extends AppCompatActivity {
         Intent intent = getIntent();
         messageFrom = intent.getStringExtra(StartingScreen.EXTRA_MESSAGE);
         mTextMessage = (TextView) findViewById(R.id.message);
+        mTextMessage.setText(messageFrom);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

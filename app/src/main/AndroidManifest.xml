@@ -17,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainAppScreenActivity">
+        </meta-data>
         <activity
             android:name=".MainAppScreenActivity"
             android:label="@string/title_activity_main_app_screen"></activity>

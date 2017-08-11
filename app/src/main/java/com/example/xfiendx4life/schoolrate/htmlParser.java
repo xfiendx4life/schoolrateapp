@@ -34,4 +34,6 @@ public class htmlParser {
 
         return schools;
     }
-}
+
+
+    }

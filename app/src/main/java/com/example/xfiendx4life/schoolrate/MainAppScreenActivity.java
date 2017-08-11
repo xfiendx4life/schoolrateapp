@@ -1,5 +1,6 @@
 package com.example.xfiendx4life.schoolrate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,15 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import static com.example.xfiendx4life.schoolrate.htmlParser.Rate;
-
 public class MainAppScreenActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-    String checkString;
+    String messageFrom;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -23,7 +20,7 @@ public class MainAppScreenActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    mTextMessage.setText(messageFrom);
                     return true;
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
@@ -41,15 +38,12 @@ public class MainAppScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_app_screen);
-        try {
-            ArrayList <School> check  = Rate();  // попытка получить данные
-            //получить строку в checkString и вывести ее в TextView
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Intent intent = getIntent();
+        messageFrom = intent.getStringExtra(StartingScreen.EXTRA_MESSAGE);
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
 
 }

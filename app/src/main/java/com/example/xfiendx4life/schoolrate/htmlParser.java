@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 public class htmlParser {
-    public static ArrayList<School> Rate() throws IOException {
+    protected static ArrayList<School> Rate() throws IOException {
         ArrayList<School> schools = new ArrayList<>();
         try {
             Document doc = Jsoup.connect("http://www.schoolrate.ru/").get();
@@ -20,7 +20,7 @@ public class htmlParser {
             Elements price = doc.select("span.price");
 
 
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 31; i++) {
                 School currentSchool = new School();
                 currentSchool.schoolName = names.get(i).text();
                 currentSchool.score = Integer.parseInt(score.get(i).text());
@@ -29,7 +29,7 @@ public class htmlParser {
                 schools.add(currentSchool);
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return schools;

@@ -47,7 +47,7 @@ public class StartingScreen extends AppCompatActivity {
             try {
 
                 ArrayList<School> schools = Rate();
-                checkString = schools.get(4).schoolName;//пусть пока будет
+                checkString = schools.get(1).schoolName;//пусть пока будет
                 writeToFile(schools);
             }
             catch (Exception e) {

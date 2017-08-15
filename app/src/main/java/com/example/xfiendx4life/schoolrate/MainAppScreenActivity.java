@@ -8,6 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 public class MainAppScreenActivity extends AppCompatActivity {
 
     private TextView mTextName;
@@ -34,12 +41,29 @@ public class MainAppScreenActivity extends AppCompatActivity {
 
     };
 
+    public ArrayList<School> readDataFromFile() throws IOException, FileNotFoundException, ClassNotFoundException {
+        String filePath = getFilesDir().getPath().toString() + "/dataFile.dt";
+        File file = new File(filePath);
+        ArrayList<School> schools = null;
+        if (file.exists()) {
+            FileInputStream fis = new FileInputStream(filePath);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            schools = (ArrayList<School>) ois.readObject();
+        }
+        return schools;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_app_screen);
         Intent intent = getIntent();
-        messageFrom = intent.getStringExtra(StartingScreen.EXTRA_NAME);
+        try {
+            messageFrom = readDataFromFile().get(4).schoolName;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            messageFrom = intent.getStringExtra(StartingScreen.EXTRA_NAME);
+        }
         mTextName = (TextView) findViewById(R.id.name);
         mTextName.setText(messageFrom);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

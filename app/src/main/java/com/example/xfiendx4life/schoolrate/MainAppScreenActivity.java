@@ -39,7 +39,7 @@ public class MainAppScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_app_screen);
         Intent intent = getIntent();
-        messageFrom = intent.getStringExtra(StartingScreen.EXTRA_MESSAGE);
+        messageFrom = intent.getStringExtra(StartingScreen.EXTRA_NAME);
         mTextName = (TextView) findViewById(R.id.name);
         mTextName.setText(messageFrom);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

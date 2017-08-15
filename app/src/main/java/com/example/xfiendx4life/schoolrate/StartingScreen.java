@@ -23,7 +23,7 @@ public class StartingScreen extends AppCompatActivity {
         new GetData().execute();
     }
     public void startNewScreen(){
-        Intent intent = new Intent(this, MainAppScreenActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(EXTRA_NAME,checkString);
         startActivity(intent);
     }

@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
@@ -40,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
         //mTextName.setText(messageFrom);
     }
     public void fillTable () {
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, null);
+        TextView tv = tr.findViewById(R.id.number);
+        tv.setText("");
+        tv =  tr.findViewById(R.id.name);
+        tv.setText("Название школы");
+        tv =  tr.findViewById(R.id.rating);
+        tv.setText("Рейтинг");
+        tv =  tr.findViewById(R.id.price);
+        tv.setText("Цена");
+        tableLayout.addView(tr);
         for(int i = 0; i<schools.size(); i++){
             addRow(i);
         }
@@ -61,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         tableLayout.addView(tr);
     }
 
-    public void readDataFromFile() throws IOException, FileNotFoundException, ClassNotFoundException {
+    public void readDataFromFile() throws IOException, ClassNotFoundException {
         String filePath = getFilesDir().getPath().toString() + "/dataFile.dt";
         File file = new File(filePath);
 

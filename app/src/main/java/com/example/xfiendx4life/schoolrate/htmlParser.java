@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class htmlParser {
-    protected static ArrayList<School> Rate() throws IOException {
+class htmlParser {
+    static ArrayList<School> Rate() throws IOException {
         ArrayList<School> schools = new ArrayList<>();
         try {
             Document doc = Jsoup.connect("http://www.schoolrate.ru/").get();
@@ -26,6 +26,7 @@ public class htmlParser {
                 currentSchool.score = Integer.parseInt(score.get(i).text());
                 currentSchool.pictureLink = icon.get(i).attr("src");
                 currentSchool.lessonPrice = Integer.parseInt(price.get(i).text());
+                currentSchool.schoolCardLink = names.get(i).attr("href");
                 schools.add(currentSchool);
             }
         } catch (Exception e) {

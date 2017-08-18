@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     //private TextView mTextName;
     String messageFrom;
     ArrayList<School> schools = null;
+    public static final String SCHOOL_NAME = "com.example.xfiendx4life.schoolrate";
 
 
     @Override
@@ -35,16 +37,16 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
             //messageFrom = intent.getStringExtra(StartingScreen.EXTRA_NAME);
         }
-        //
-        //mTextName.setText(messageFrom);
+
     }
     public void fillTable () {
         TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
         LayoutInflater inflater = LayoutInflater.from(this);
         TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, null);
+        tr.setId(0);
         TextView tv = tr.findViewById(R.id.number);
         tv.setText("");
-        tv =  tr.findViewById(R.id.name);
+        tv =  tr.findViewById(R.id.school_name);
         tv.setText("Название школы");
         tv =  tr.findViewById(R.id.rating);
         tv.setText("Рейтинг");
@@ -61,16 +63,27 @@ public class MainActivity extends AppCompatActivity {
         TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
         LayoutInflater inflater = LayoutInflater.from(this);
         TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, null);
+        tr.setId(num + 1);
         TextView tv = tr.findViewById(R.id.number);
-        tv.setText(Integer.toString(num+1));
-        tv =  tr.findViewById(R.id.name);
+        tv.setText(String.valueOf(num+1));
+        tv =  tr.findViewById(R.id.school_name);
         tv.setText(schools.get(num).schoolName);
         tv =  tr.findViewById(R.id.rating);
-        tv.setText(Integer.toString(schools.get(num).score));
+        tv.setText(String.valueOf(schools.get(num).score));
         tv =  tr.findViewById(R.id.price);
-        tv.setText(Integer.toString(schools.get(num).lessonPrice));
+        tv.setText(String.valueOf(schools.get(num).lessonPrice));
+        final int index = num ;
+        tr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SchoolCard.class);
+                intent.putExtra(SCHOOL_NAME,schools.get(index).schoolName);
+                startActivity(intent);
+            }
+        });
         tableLayout.addView(tr);
     }
+
 
     public void readDataFromFile() throws IOException, ClassNotFoundException {
         String filePath = getFilesDir().getPath().toString() + "/dataFile.dt";

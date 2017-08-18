@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"> </string>
+    <string name="app_name">SchoolRate</string>
     <string name="title_activity_main_app_screen">Рейтинг</string>
     <string name="title_home">Рейтинг</string>
     <string name="title_dashboard">Алфавитный сисок</string>

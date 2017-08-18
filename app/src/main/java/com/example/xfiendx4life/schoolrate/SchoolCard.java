@@ -13,6 +13,7 @@ public class SchoolCard extends AppCompatActivity {
         setContentView(R.layout.activity_school_card);
         TextView nameTextView = (TextView) findViewById(R.id.school_name_text);
         Intent intent = getIntent();
-        nameTextView.setText(intent.getStringExtra(MainActivity.SCHOOL_NAME));
+        String link = intent.getStringExtra(MainActivity.SCHOOL_NAME); //link to card actually
+        nameTextView.setText(link);
     }
 }

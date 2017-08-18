@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SchoolCard.class);
-                intent.putExtra(SCHOOL_NAME,schools.get(index).schoolName);
+                intent.putExtra(SCHOOL_NAME,schools.get(index).schoolCardLink);
                 startActivity(intent);
             }
         });

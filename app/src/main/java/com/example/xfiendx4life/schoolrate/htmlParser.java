@@ -2,10 +2,12 @@ package com.example.xfiendx4life.schoolrate;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 
 class htmlParser {
@@ -34,6 +36,29 @@ class htmlParser {
         }
 
         return schools;
+    }
+
+    public static SchoolCardData cardDataGetter(String url) throws IOException {
+        SchoolCardData cardData = new SchoolCardData();
+        Document doc = Jsoup.connect(url).get();
+        Element imageDiv = doc.select("div.school-logo").first();
+        Element image = imageDiv.children().first();// получаем первый img из дива, после этого нужно по аттрибуту получать адрес
+        Element bio = doc.getElementById("desc_here");
+        Element rating = doc.select("div.score").first();
+        Elements prices = doc.select("ul.av-price>li>div.value");
+
+        Elements pricesNames = doc.select("ul.av-price>li>div.title");
+
+        cardData.bio = bio.text();
+        cardData.rating = Integer.parseInt(rating.text());
+        cardData.picLink = image.attr("src");
+        Hashtable<String, Integer> pricess = new Hashtable<String, Integer>();
+        for (int i = 0; i < pricesNames.size(); i++) {
+            pricess.put(pricesNames.get(i).text(), Integer.parseInt(prices.get(i).text()));
+        }
+        cardData.prices = pricess;
+
+        return cardData;
     }
 
 

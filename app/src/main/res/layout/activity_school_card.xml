@@ -14,7 +14,7 @@
         android:layout_weight="3"
         android:src="@drawable/bkc_ih"/>
     <TextView
-        android:id="@+id/school_name_text"
+        android:id="@+id/school_bio_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"

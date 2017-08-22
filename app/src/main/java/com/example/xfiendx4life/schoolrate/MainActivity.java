@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     //private TextView mTextName;
     String messageFrom;
     ArrayList<School> schools = null;
-    public static final String SCHOOL_NAME = "com.example.xfiendx4life.schoolrate";
-
+    public static final String SCHOOL_LINK = "com.example.xfiendx4life.schoolrate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SchoolCard.class);
-                intent.putExtra(SCHOOL_NAME,schools.get(index).schoolCardLink);
+                intent.putExtra(SCHOOL_LINK,schools.get(index).schoolCardLink);
                 startActivity(intent);
             }
         });

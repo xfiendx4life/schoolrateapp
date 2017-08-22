@@ -19,6 +19,9 @@ public class SchoolCard extends AppCompatActivity {
     SchoolCardData schoolData = new SchoolCardData();
     Bitmap bmp;
     ImageView schPic;
+    String name;
+    //final android.app.ActionBar ab = getActionBar();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +29,7 @@ public class SchoolCard extends AppCompatActivity {
         bioTextView = (TextView) findViewById(R.id.school_bio_text);
         Intent intent = getIntent();
         //получим данные в фоне
-        link = intent.getStringExtra(MainActivity.SCHOOL_NAME); //link to card actually
+        link = intent.getStringExtra(MainActivity.SCHOOL_LINK);
         new GetData().execute();
         //nameTextView.setText(link);
     }
@@ -58,14 +61,14 @@ public class SchoolCard extends AppCompatActivity {
             bioTextView.setText(schoolData.bio);
             schPic = (ImageView) findViewById(R.id.school_pic);
             schPic.setImageBitmap(bmp);
-           /* try {
-                getActionBar().setTitle(schoolData.name);
+           /*try {
+
             }
             catch (Exception e){
-                getActionBar().setTitle(R.string.school_page);
+                bioTextView.setText("Unexpected Error");
             }
-            //bioTextView.setText("Unexpected Error");
-            */
+            /*/
+
 
         }
     }

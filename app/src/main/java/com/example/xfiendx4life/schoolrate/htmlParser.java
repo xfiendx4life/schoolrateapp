@@ -41,7 +41,7 @@ class htmlParser {
     public static SchoolCardData cardDataGetter(String url) throws IOException {
         SchoolCardData cardData = new SchoolCardData();
         Document doc = Jsoup.connect(url).get();
-       // Element name = doc.select("h1.schoolname").first(); //разобраться с именем
+        Element name = doc.select("h1#schoolname").first(); //разобраться с именем
         Element imageDiv = doc.select("div.school-logo").first();
         Element image = imageDiv.children().first();// получаем первый img из дива, после этого нужно по аттрибуту получать адрес
         Element bio = doc.getElementById("desc_here");
@@ -50,7 +50,7 @@ class htmlParser {
 
         Elements pricesNames = doc.select("ul.av-price>li>div.title");
 
-        //cardData.name = name.text();
+        cardData.name = name.text();
         cardData.bio = bio.text();
         cardData.rating = Integer.parseInt(rating.text());
         cardData.picLink = image.attr("src");

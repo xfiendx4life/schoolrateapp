@@ -56,7 +56,12 @@ class htmlParser {
         cardData.picLink = image.attr("src");
         Hashtable<String, Integer> pricess = new Hashtable<String, Integer>();
         for (int i = 0; i < pricesNames.size(); i++) {
-            pricess.put(pricesNames.get(i).text(), Integer.parseInt(prices.get(i).text()));
+            try {
+                pricess.put(pricesNames.get(i).text(), Integer.parseInt(prices.get(i).text()));
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         cardData.prices = pricess;
 

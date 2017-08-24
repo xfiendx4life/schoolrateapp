@@ -61,6 +61,8 @@ public class SchoolCard extends AppCompatActivity {
             bioTextView.setText(schoolData.bio);
             schPic = (ImageView) findViewById(R.id.school_pic);
             schPic.setImageBitmap(bmp);
+            TextView pricesHeader = (TextView) findViewById(R.id.prices_header);
+            pricesHeader.setText(R.string.prices_for_card_header);
            /*try {
 
             }

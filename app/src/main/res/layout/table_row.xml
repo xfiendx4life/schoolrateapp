@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:layout_margin="3sp"
+    android:background="#FBFBFB">
+
     <TextView
         android:id="@+id/number"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="2dp"
-        android:layout_weight="0"
+        android:paddingRight="5sp"
+        android:paddingLeft="5sp"
+        android:textSize="15sp"/>
 
-        />
     <TextView
         android:id="@+id/school_name"
-        android:layout_weight="2"
-        android:layout_height="wrap_content"
+        android:textSize="15sp"
 
-        android:padding="2dp"
-        />
+        android:text="School Name" />
+
     <TextView
         android:id="@+id/rating"
-        android:layout_weight="3"
-
-        android:padding="2dp"
-        android:maxLines="1"
+        android:text="Rating"
+        android:textSize="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
         />
-    <TextView
-        android:layout_weight="3"
-        android:id="@+id/price"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:textStyle="bold"
 
-        />
 </TableRow>
+
+
+

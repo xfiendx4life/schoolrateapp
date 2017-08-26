@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     String messageFrom;
     ArrayList<School> schools = null;
     public static final String SCHOOL_LINK = "com.example.xfiendx4life.schoolrate";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void fillTable () {
-        TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
+        /*TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
         LayoutInflater inflater = LayoutInflater.from(this);
-        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, null);
+        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, tableLayout, false);
         tr.setId(0);
         TextView tv = tr.findViewById(R.id.number);
         tv.setText("");
@@ -49,28 +48,30 @@ public class MainActivity extends AppCompatActivity {
         tv.setText("Название школы");
         tv =  tr.findViewById(R.id.rating);
         tv.setText("Рейтинг");
-        tv =  tr.findViewById(R.id.price);
-        tv.setText("Цена");
-        tableLayout.addView(tr);
+        //tv =  tr.findViewById(R.id.price);
+        //tv.setText("Цена");
+        tableLayout.addView(tr);*/
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
+        LayoutInflater inflater = LayoutInflater.from(this);
         for(int i = 0; i<schools.size(); i++){
-            addRow(i);
+           addRow(i, inflater, tableLayout);
         }
 
     }
 
-    public void addRow(int num) {
-        TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, null);
+    public void addRow(int num, LayoutInflater inflater, TableLayout parent) {
+
+        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, parent,false);
         tr.setId(num + 1);
         TextView tv = tr.findViewById(R.id.number);
         tv.setText(String.valueOf(num+1));
         tv =  tr.findViewById(R.id.school_name);
         tv.setText(schools.get(num).schoolName);
         tv =  tr.findViewById(R.id.rating);
-        tv.setText(String.valueOf(schools.get(num).score));
-        tv =  tr.findViewById(R.id.price);
-        tv.setText(String.valueOf(schools.get(num).lessonPrice));
+        tv.setText(String.valueOf(schools.get(num).score));;
+
+        //tv =  tr.findViewById(R.id.price);
+        //tv.setText(String.valueOf(schools.get(num).lessonPrice));
         final int index = num ;
         tr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        tableLayout.addView(tr);
+       parent.addView(tr);
     }
 
 

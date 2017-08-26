@@ -14,12 +14,11 @@
     <TextView
         android:id="@+id/school_name"
         android:textSize="15sp"
-
-        android:text="School Name" />
+        android:text="@string/table_header_name" />
 
     <TextView
         android:id="@+id/rating"
-        android:text="Rating"
+        android:text="@string/table_header_rating"
         android:textSize="15sp"
         android:paddingLeft="5sp"
         android:paddingRight="5sp"

@@ -4,7 +4,8 @@
     <string name="title_home">Рейтинг</string>
     <string name="title_dashboard">Алфавитный сисок</string>
     <string name="title_notifications">Чат со специалистом</string>
-    <string name="welcome_string">Welcome To</string>
     <string name = "school_page"></string>
     <string name = "prices_for_card_header">ЦЕНЫ</string>
+    <string name="table_header_name">Название школы</string>
+    <string name="table_header_rating">Рейтинг</string>
 </resources>

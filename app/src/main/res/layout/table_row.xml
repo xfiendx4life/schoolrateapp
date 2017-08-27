@@ -2,26 +2,30 @@
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="3sp"
+    android:layout_margin="1sp"
+    android:padding="10sp"
     android:background="#FBFBFB">
 
     <TextView
         android:id="@+id/number"
         android:paddingRight="5sp"
         android:paddingLeft="5sp"
-        android:textSize="15sp"/>
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/school_name"
         android:textSize="15sp"
-        android:text="@string/table_header_name" />
+        android:text="@string/table_header_name"
+        android:maxLines="2"
+        android:layout_weight="2"
+        />
 
     <TextView
         android:id="@+id/rating"
         android:text="@string/table_header_rating"
-        android:textSize="15sp"
-        android:paddingLeft="5sp"
+        android:textSize="14sp"
         android:paddingRight="5sp"
+        android:textAlignment="center"
         />
 
 </TableRow>

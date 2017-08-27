@@ -9,6 +9,7 @@
         android:id="@+id/table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#D3D3D3"
         >
 
         <include layout = "@layout/table_row"/>

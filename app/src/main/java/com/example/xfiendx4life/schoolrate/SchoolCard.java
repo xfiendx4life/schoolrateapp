@@ -6,11 +6,16 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.net.URL;
+import java.util.Enumeration;
 
+import static com.example.xfiendx4life.schoolrate.MainActivity.SCHOOL_LINK;
 import static com.example.xfiendx4life.schoolrate.htmlParser.cardDataGetter;
 
 public class SchoolCard extends AppCompatActivity {
@@ -29,7 +34,7 @@ public class SchoolCard extends AppCompatActivity {
         bioTextView = (TextView) findViewById(R.id.school_bio_text);
         Intent intent = getIntent();
         //получим данные в фоне
-        link = intent.getStringExtra(MainActivity.SCHOOL_LINK);
+        link = intent.getStringExtra(SCHOOL_LINK);
         new GetData().execute();
         //nameTextView.setText(link);
     }
@@ -63,6 +68,7 @@ public class SchoolCard extends AppCompatActivity {
             schPic.setImageBitmap(bmp);
             TextView pricesHeader = (TextView) findViewById(R.id.prices_header);
             pricesHeader.setText(R.string.prices_for_card_header);
+            FillPricesTable();
            /*try {
 
             }
@@ -74,4 +80,27 @@ public class SchoolCard extends AppCompatActivity {
 
         }
     }
+
+    public void FillPricesTable() {
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.prices_table);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        Enumeration e = schoolData.prices.keys();
+        int id = 0;
+        while(e.hasMoreElements()){
+            addRow((String) e.nextElement(), id, inflater, tableLayout);
+            id++;
+        }
+    }
+    public void addRow(String key, int id, LayoutInflater inflater, TableLayout parent) {
+
+        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, parent,false);
+        tr.setId(id);
+        TextView tv = tr.findViewById(R.id.school_name);
+        tv.setText(key);
+        tv =  tr.findViewById(R.id.rating);
+        tv.setText(String.valueOf(schoolData.prices.get(key)));
+
+        parent.addView(tr);
+    }
+
 }

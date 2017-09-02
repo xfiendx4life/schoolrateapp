@@ -25,6 +25,7 @@
         android:text="@string/table_header_rating"
         android:textSize="14sp"
         android:paddingRight="5sp"
+        android:paddingLeft="5sp"
         android:textAlignment="center"
         />
 

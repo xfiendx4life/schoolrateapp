@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         tv =  tr.findViewById(R.id.school_name);
         tv.setText(schools.get(num).schoolName);
         tv =  tr.findViewById(R.id.rating);
-        tv.setText(String.valueOf(schools.get(num).score));;
+        tv.setText(String.valueOf(schools.get(num).score));
 
         //tv =  tr.findViewById(R.id.price);
         //tv.setText(String.valueOf(schools.get(num).lessonPrice));

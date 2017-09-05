@@ -7,8 +7,8 @@ import java.util.Hashtable;
 class SchoolCardData implements Serializable {
     String name;
     String bio; //описание
-    int rating;
+    float rating;
     String picLink;
-    Hashtable <String, Integer> prices;// цены добавляем только те, что есть на сайте
+    Hashtable <String, Float> prices;// цены добавляем только те, что есть на сайте
 
 }

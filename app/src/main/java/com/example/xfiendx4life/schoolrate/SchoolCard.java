@@ -98,7 +98,7 @@ public class SchoolCard extends AppCompatActivity {
         TextView tv = tr.findViewById(R.id.school_name);
         tv.setText(key);
         tv =  tr.findViewById(R.id.rating);
-        tv.setText(String.valueOf(schoolData.prices.get(key)));
+        tv.setText(String.format("%.0f",schoolData.prices.get(key)));
 
         parent.addView(tr);
     }

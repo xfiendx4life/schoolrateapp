@@ -9,4 +9,8 @@ class School implements Serializable{
     int lessonPrice;
     String pictureLink;
     String schoolCardLink;
+
+    int numberOfSchools;
+    boolean licence;
+    String yearOfBirth;
 }

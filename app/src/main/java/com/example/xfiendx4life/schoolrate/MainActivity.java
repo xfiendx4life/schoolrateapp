@@ -1,6 +1,7 @@
 package com.example.xfiendx4life.schoolrate;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -53,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
         tableLayout.addView(tr);*/
         TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
         LayoutInflater inflater = LayoutInflater.from(this);
+        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, tableLayout,false);
+        tr.setId(0);
+        TextView tv = tr.findViewById(R.id.school_name);
+        tv.setText("Название школы");
+        tv.setTextSize(15);
+        tv.setTypeface(null, Typeface.BOLD);
+        tv =  tr.findViewById(R.id.rating);
+        tv.setText("Рейтинг");
+        tv.setTextSize(15);
+        tv.setTypeface(null, Typeface.BOLD);
+        tableLayout.addView(tr);
         for(int i = 0; i<schools.size(); i++){
            addRow(i, inflater, tableLayout);
         }

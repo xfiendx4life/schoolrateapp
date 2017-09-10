@@ -48,8 +48,10 @@ public class SchoolCard extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
 
             try {
-
-                schoolData = cardDataGetter("http://www.schoolrate.ru"+link);
+                if (!link.startsWith("http:")) {
+                    link = "http://www.schoolrate.ru"+link;
+                }
+                schoolData = cardDataGetter(link);
                 URL url = new URL("http://www.schoolrate.ru" + schoolData.picLink);
                 bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             }

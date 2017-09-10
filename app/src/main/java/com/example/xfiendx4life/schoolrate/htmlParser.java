@@ -82,18 +82,19 @@ class htmlParser {
         Document doc = Jsoup.connect(url).get();
         Elements names = doc.select("div.col1>a");
         Elements prices = doc.select("div.col2");
-        Elements houses = doc.select("div.col3");
+        Elements houses = doc.select("div.col4");
         Elements year = doc.select("div.col5");
         //получить данные из алфавитного спискаЫ
-        School newSchool = new School();
+
         int i = 1;
         for(Element e: names ){
+            School newSchool = new School();
             newSchool.schoolName = e.text();
             newSchool.schoolCardLink = e.attr("href");
 
             try {
-                newSchool.numberOfSchools = Integer.valueOf(houses.get(i).text());
-                newSchool.lessonPrice = Integer.valueOf(prices.get(i).text());
+                newSchool.numberOfSchools = Integer.parseInt(houses.get(i).text());
+                newSchool.lessonPrice = Integer.parseInt(prices.get(i).text());
             }
             catch (Exception ex) {
                 newSchool.lessonPrice = 0;

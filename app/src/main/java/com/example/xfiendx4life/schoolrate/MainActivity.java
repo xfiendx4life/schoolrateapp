@@ -3,8 +3,11 @@ package com.example.xfiendx4life.schoolrate;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -26,32 +29,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_main);
-        //mTextName = (TextView) findViewById(R.id.name);
+        loadRating();
+        setNavigationDrawer();
+
+    }
+    private void loadRating(){
         try {
             readDataFromFile();
-            messageFrom = schools.get(4).schoolName;
             fillTable();
         }
         catch (Exception e){
             e.printStackTrace();
-            //messageFrom = intent.getStringExtra(StartingScreen.EXTRA_NAME);
         }
-
     }
+
+    private void setNavigationDrawer() {
+        final DrawerLayout dLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navView = (NavigationView) findViewById(R.id.navigation);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                int itemId = menuItem.getItemId();
+                if(itemId == R.id.rating){
+                    loadRating();
+                }
+                else {
+                    if (itemId == R.id.alphabet) {
+                        Intent intent = new Intent(MainActivity.this, Alphabet.class);
+                        startActivity(intent);
+                    }
+                }
+                dLayout.closeDrawers();
+                return true;
+            }
+        });
+        }
     public void fillTable () {
-        /*TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, tableLayout, false);
-        tr.setId(0);
-        TextView tv = tr.findViewById(R.id.number);
-        tv.setText("");
-        tv =  tr.findViewById(R.id.school_name);
-        tv.setText("Название школы");
-        tv =  tr.findViewById(R.id.rating);
-        tv.setText("Рейтинг");
-        //tv =  tr.findViewById(R.id.price);
-        //tv.setText("Цена");
-        tableLayout.addView(tr);*/
         TableLayout tableLayout = (TableLayout) findViewById(R.id.table);
         LayoutInflater inflater = LayoutInflater.from(this);
         TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, tableLayout,false);
@@ -71,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public void addRow(int num, LayoutInflater inflater, TableLayout parent) {
 
         TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, parent,false);
@@ -82,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
         tv =  tr.findViewById(R.id.rating);
         tv.setText(String.valueOf(schools.get(num).score));
 
-        //tv =  tr.findViewById(R.id.price);
-        //tv.setText(String.valueOf(schools.get(num).lessonPrice));
         final int index = num ;
         tr.setOnClickListener(new View.OnClickListener() {
             @Override

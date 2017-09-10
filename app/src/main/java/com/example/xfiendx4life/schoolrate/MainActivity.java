@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
         TableRow tr = (TableRow) inflater.inflate(R.layout.table_row, tableLayout,false);
         tr.setId(0);
         TextView tv = tr.findViewById(R.id.school_name);
-        tv.setText("Название школы");
+        tv.setText(R.string.table_header_name);
         tv.setTextSize(15);
         tv.setTypeface(null, Typeface.BOLD);
         tv =  tr.findViewById(R.id.rating);
-        tv.setText("Рейтинг");
+        tv.setText(R.string.table_header_rating);
         tv.setTextSize(15);
         tv.setTypeface(null, Typeface.BOLD);
         tableLayout.addView(tr);

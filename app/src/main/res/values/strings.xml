@@ -8,4 +8,5 @@
     <string name="prices_for_card_header">ЦЕНЫ</string>
     <string name="table_header_name">Название школы</string>
     <string name="table_header_rating">Рейтинг</string>
+    <string name="alphabet_label">Алфавитный список</string>
 </resources>

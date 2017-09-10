@@ -28,7 +28,9 @@
             android:name=".SchoolCard"
             android:label="@string/school_page"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".Alphabet"></activity>
+        <activity android:name=".Alphabet"
+            android:label="@string/alphabet_label"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

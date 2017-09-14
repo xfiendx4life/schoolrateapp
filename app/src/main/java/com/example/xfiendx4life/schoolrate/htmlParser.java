@@ -80,7 +80,7 @@ class htmlParser {
     static ArrayList<School>  FullSchoolList (String url) throws IOException {
         ArrayList<School> schools = new ArrayList<>();
         Document doc = Jsoup.connect(url).get();
-        Elements names = doc.select("div.col1>a");
+        Elements names = doc.select("div.col1 a");
         Elements prices = doc.select("div.col2");
         Elements houses = doc.select("div.col4");
         Elements year = doc.select("div.col5");

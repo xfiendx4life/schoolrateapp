@@ -17,11 +17,10 @@
             android:id="@+id/school_pic"
             android:layout_width="match_parent"
             android:scaleType="centerCrop"
-            android:layout_height="200sp"
-            android:padding="10sp"
+            android:layout_height="250sp"
+
             android:layout_gravity="center_horizontal"
-            android:background="#FBFBFB"
-            />
+            android:elevation="2dp" />
 
         <TextView
             android:layout_marginTop="5sp"
@@ -30,20 +29,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15sp"
-            android:background="#FBFBFB"/>
+            android:background="@drawable/shadow"
+            android:elevation="2sp"
+            />
         <TextView
             android:id="@+id/prices_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="10sp"
             android:layout_gravity="center"
+            android:background="@drawable/shadow"
+            android:elevation="2sp"
             />
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:id="@+id/prices_table"
-            android:layout_marginBottom="10sp">
+            android:layout_margin="10sp"
+            android:background="@drawable/shadow"
+            android:elevation="2sp">
 
         </TableLayout>
 

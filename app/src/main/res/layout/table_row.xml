@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_margin="1sp"
     android:padding="10sp"
-    android:background="#FBFBFB">
+    android:background="#FBFBFB"
+    android:elevation="2dp">
 
     <TextView
         android:id="@+id/number"

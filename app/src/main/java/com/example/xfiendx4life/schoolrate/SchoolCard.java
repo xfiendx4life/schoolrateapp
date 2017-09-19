@@ -51,8 +51,14 @@ public class SchoolCard extends AppCompatActivity {
                 if (!link.startsWith("http:")) {
                     link = "http://www.schoolrate.ru"+link;
                 }
+                URL url;
                 schoolData = cardDataGetter(link);
-                URL url = new URL("http://www.schoolrate.ru" + schoolData.picLink);
+                if(!schoolData.picLink.startsWith("http:")){
+                url = new URL("http://www.schoolrate.ru" + schoolData.picLink);
+                }
+                else {
+                    url = new URL(schoolData.picLink);
+                }
                 bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             }
             catch (Exception ee) {
@@ -65,19 +71,18 @@ public class SchoolCard extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            bioTextView.setText(schoolData.bio);
-            schPic = (ImageView) findViewById(R.id.school_pic);
-            schPic.setImageBitmap(bmp);
-            TextView pricesHeader = (TextView) findViewById(R.id.prices_header);
-            pricesHeader.setText(R.string.prices_for_card_header);
-            FillPricesTable();
-           /*try {
-
+           try {
+               bioTextView.setText(schoolData.bio);
+               schPic = (ImageView) findViewById(R.id.school_pic);
+               schPic.setImageBitmap(bmp);
+               TextView pricesHeader = (TextView) findViewById(R.id.prices_header);
+               pricesHeader.setText(R.string.prices_for_card_header);
+               FillPricesTable();
             }
             catch (Exception e){
                 bioTextView.setText("Unexpected Error");
             }
-            /*/
+
 
 
         }

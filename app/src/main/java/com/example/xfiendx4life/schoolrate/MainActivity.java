@@ -58,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, Alphabet.class);
                         startActivity(intent);
                     }
+                    if (itemId == R.id.chat) {
+                        Intent intent = new Intent(MainActivity.this, application.class);
+                        startActivity(intent);
+                    }
                 }
+
                 dLayout.closeDrawers();
                 return true;
             }

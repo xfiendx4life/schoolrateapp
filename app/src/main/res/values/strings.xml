@@ -9,4 +9,5 @@
     <string name="table_header_name">Название школы</string>
     <string name="table_header_rating">Рейтинг</string>
     <string name="alphabet_label">Алфавитный список</string>
+    <string name="application">Заявка на обучение</string>
 </resources>

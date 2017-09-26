@@ -32,7 +32,9 @@
             android:name=".Alphabet"
             android:label="@string/alphabet_label"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".application"></activity>
+        <activity android:name=".application"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/application"/>
     </application>
 
 </manifest>

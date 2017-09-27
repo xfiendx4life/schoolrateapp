@@ -7,11 +7,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="Основная ифнормация"
+        android:text="Основная информация"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:layout_marginTop="10sp"/>
+        android:layout_margin="10sp"
+        android:background="@drawable/shadow"
+        android:padding="3sp"/>
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -19,6 +20,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/shadow"
     android:elevation="2sp"
+    android:layout_margin="5sp"
     >
     <TextView
         android:layout_width="wrap_content"
@@ -31,6 +33,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/user_name"
+        android:layout_alignParentRight="true"
+        android:inputType="textEmailAddress"
+        android:id="@+id/user_name_edit"/>
+    <TextView
+        android:layout_below="@id/user_name_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_email_tw"
+        android:text="Электропочта"
+        android:textSize="15sp"
+        android:padding="10sp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_name_edit"
+        android:layout_toRightOf="@id/user_email_tw"
         android:layout_alignParentRight="true" />
 
 

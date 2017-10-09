@@ -10,4 +10,9 @@
     <string name="table_header_rating">Рейтинг</string>
     <string name="alphabet_label">Алфавитный список</string>
     <string name="application">Заявка на обучение</string>
+    <string name="application_name">Имя</string>
+    <string name="application_email">Электронная почта</string>
+    <string name="application_phone">Номаер телефона</string>
+    <string name="application_extra">Дополнительная информация</string>
+    <string name="application_send">Отправить заявку</string>
 </resources>

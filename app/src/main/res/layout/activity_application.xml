@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Основная информация"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_margin="10sp"
-        android:background="@drawable/shadow"
-        android:padding="3sp"/>
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -22,37 +9,49 @@
     android:elevation="2sp"
     android:layout_margin="5sp"
     >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/user_name"
-        android:text="Имя"
-        android:textSize="15sp"
-        android:padding="10sp"/>
+
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/user_name"
-        android:layout_alignParentRight="true"
         android:inputType="textEmailAddress"
-        android:id="@+id/user_name_edit"/>
-    <TextView
-        android:layout_below="@id/user_name_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/user_email_tw"
-        android:text="Электропочта"
-        android:textSize="15sp"
-        android:padding="10sp"/>
+        android:id="@+id/user_name_edit"
+        android:hint="@string/application_name"/>
+
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/user_name_edit"
-        android:layout_toRightOf="@id/user_email_tw"
-        android:layout_alignParentRight="true" />
+        android:id="@+id/email_edit"
+        android:inputType="textEmailAddress"
+        android:hint="@string/application_email"/>
 
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email_edit"
+        android:id="@+id/phone_edit"
+        android:inputType="phone"
+        android:hint="@string/application_phone"
+        />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/send_button"
+        android:text="@string/application_send"
+        android:elevation="2sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/extra"
+        android:layout_below="@id/phone_edit"
+        android:layout_above="@id/send_button"
+        android:hint="@string/application_extra"/>
 
 
 </RelativeLayout>
-</LinearLayout>

@@ -51,7 +51,8 @@
         android:id="@+id/extra"
         android:layout_below="@id/phone_edit"
         android:layout_above="@id/send_button"
-        android:hint="@string/application_extra"/>
+        android:hint="@string/application_extra"
+        android:gravity="start"/>
 
 
 </RelativeLayout>

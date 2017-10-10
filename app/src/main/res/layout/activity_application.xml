@@ -40,11 +40,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
         android:id="@+id/send_button"
         android:text="@string/application_send"
-        android:elevation="2sp"/>
+        android:elevation="2sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

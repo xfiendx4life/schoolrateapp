@@ -34,7 +34,11 @@
             android:layout_marginTop="5sp"
             android:background="@drawable/shadow"
             android:elevation="2sp"
-            android:padding="15sp" />
+            android:padding="15sp"
+            android:lines="4"
+            android:onClick="openBio"/>
+
+
 
         <TextView
             android:id="@+id/prices_header"

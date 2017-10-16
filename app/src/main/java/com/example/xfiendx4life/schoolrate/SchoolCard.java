@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -25,6 +26,7 @@ public class SchoolCard extends AppCompatActivity {
     Bitmap bmp;
     ImageView schPic;
     String name;
+    public static final String SCHOOL_BIO = "SCHOOL_BIO";
     //final android.app.ActionBar ab = getActionBar();
 
     @Override
@@ -108,6 +110,12 @@ public class SchoolCard extends AppCompatActivity {
         tv.setText(String.format("%.0f",schoolData.prices.get(key)));
 
         parent.addView(tr);
+    }
+
+    public void openBio(View view) {
+        Intent intent = new Intent(SchoolCard.this, SchoolBio.class);
+        intent.putExtra(SCHOOL_BIO,schoolData.bio);
+        startActivity(intent);
     }
 
 }

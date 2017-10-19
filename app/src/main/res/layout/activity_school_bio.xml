@@ -9,23 +9,8 @@
         android:layout_height="match_parent"
         android:background="#00ffffff">
 
-        <Button
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:background="@drawable/roundbutton"
-            android:text="x"
-            android:padding="3sp"
-            android:textSize="20sp"
-            android:id="@+id/x"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="50sp"
-            android:layout_marginRight="10sp"
-            android:onClick="close"
-            />
         <TextView
             android:id="@+id/bio"
-            android:layout_below="@id/x"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"

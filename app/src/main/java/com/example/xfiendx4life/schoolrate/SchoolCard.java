@@ -97,6 +97,8 @@ public class SchoolCard extends AppCompatActivity {
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         dialog.cancel();
+                                        Intent intent = new Intent(SchoolCard.this, MainActivity.class);
+                                        startActivity(intent);
                                     }
                                 });AlertDialog alert = builder.create();
                 alert.show();

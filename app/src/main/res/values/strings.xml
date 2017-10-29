@@ -15,4 +15,6 @@
     <string name="application_phone">Номаер телефона</string>
     <string name="application_extra">Дополнительная информация</string>
     <string name="application_send">Отправить заявку</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

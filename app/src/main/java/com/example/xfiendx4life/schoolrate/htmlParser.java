@@ -54,14 +54,26 @@ class htmlParser {
         Element name = doc.select("h1#schoolname").first(); //разобраться с именем
         Element imageDiv = doc.select("div.school-logo").first();
         Element image = imageDiv.children().first();// получаем первый img из дива, после этого нужно по аттрибуту получать адрес
-        Element bio = doc.getElementById("desc_here");
+        Elements bioDiv = doc.select("div.content2");
+        Elements bio = bioDiv.first().children();
         Element rating = doc.select("div.score").first();
         Elements prices = doc.select("ul.av-price>li>div.value");
 
         Elements pricesNames = doc.select("ul.av-price>li>div.title");
+        //формируем текст
+        String fullBio = "";
+        for (Element e: bio) {
+            fullBio += e.text() + "\n";
+        }
+        //удаляем лишнее из текста
+        int index = fullBio.indexOf("о школе");
+        fullBio = fullBio.substring(0,index-1);
+        index = fullBio.indexOf("\n")+ 1;
+        fullBio = fullBio.substring(index);
+
 
         cardData.name = name.text();
-        cardData.bio = bio.text();
+        cardData.bio = fullBio;
         cardData.rating = Float.parseFloat(rating.text());
         cardData.picLink = image.attr("src");
         Hashtable<String, Float> pricess = new Hashtable<>();

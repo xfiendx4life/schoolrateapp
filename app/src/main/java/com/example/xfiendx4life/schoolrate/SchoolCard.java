@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ public class SchoolCard extends AppCompatActivity {
     ImageView schPic;
     String name;
     public static final String SCHOOL_BIO = "SCHOOL_BIO";
-    //final android.app.ActionBar ab = getActionBar();
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class SchoolCard extends AppCompatActivity {
         bioTextView = (TextView) findViewById(R.id.school_bio_text);
         Intent intent = getIntent();
         //получим данные в фоне
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         link = intent.getStringExtra(SCHOOL_LINK);
         new GetData().execute();
         //nameTextView.setText(link);
@@ -44,7 +46,8 @@ public class SchoolCard extends AppCompatActivity {
     private  class GetData extends AsyncTask<Void, Void, Void> {
         Exception e = null;
         protected void onPreExecute() {
-            bioTextView.setText("Wait for data...");
+            progressBar.setVisibility(ProgressBar.VISIBLE);
+            //bioTextView.setText("Wait for data...");
         }
         @Override
         protected Void doInBackground(Void... voids) {
@@ -74,6 +77,8 @@ public class SchoolCard extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
            try {
+               progressBar.setVisibility(ProgressBar.INVISIBLE);
+               bioTextView.setVisibility(bioTextView.VISIBLE);
                bioTextView.setText(schoolData.bio);
                schPic = (ImageView) findViewById(R.id.school_pic);
                schPic.setImageBitmap(bmp);

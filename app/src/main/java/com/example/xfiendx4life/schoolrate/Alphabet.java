@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -18,14 +19,20 @@ public class Alphabet extends AppCompatActivity {
 
     ArrayList<School> schools;
     public static final String SCHOOL_LINK = "com.example.xfiendx4life.schoolrate";
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alphabet);
+        progressBar = (ProgressBar) findViewById(R.id.progressBarAbc);
         new GetData().execute();
     }
     private  class GetData extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void  onPreExecute() {
+            progressBar.setVisibility(progressBar.VISIBLE);
+        }
         @Override
         protected Void doInBackground(Void... voids) {
             try {
@@ -38,6 +45,7 @@ public class Alphabet extends AppCompatActivity {
         }
         @Override
         protected void onPostExecute (Void result) {
+            progressBar.setVisibility(progressBar.INVISIBLE);
             fillAlphabet();
         }
     }

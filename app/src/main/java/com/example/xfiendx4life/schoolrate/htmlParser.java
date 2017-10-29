@@ -70,7 +70,7 @@ class htmlParser {
         fullBio = fullBio.substring(0,index-1);
         index = fullBio.indexOf("\n")+ 1;
         fullBio = fullBio.substring(index);
-
+        fullBio = fullBio.replace("\n", System.getProperty("line.separator"));
 
         cardData.name = name.text();
         cardData.bio = fullBio;

@@ -1,10 +1,12 @@
 package com.example.xfiendx4life.schoolrate;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,7 +89,18 @@ public class SchoolCard extends AppCompatActivity {
                FillPricesTable();
             }
             catch (Exception e){
-                bioTextView.setText("Unexpected Error");
+                AlertDialog.Builder builder = new AlertDialog.Builder(SchoolCard.this);
+                builder.setTitle("Warning")
+                        .setMessage("Something Went Wrong, Check Your Connection")
+                        .setCancelable(false)
+                        .setNegativeButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });AlertDialog alert = builder.create();
+                alert.show();
+                //bioTextView.setText("Unexpected Error");
             }
 
 

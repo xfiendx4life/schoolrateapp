@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -31,11 +32,12 @@ public class SchoolCard extends AppCompatActivity {
     String name;
     public static final String SCHOOL_BIO = "SCHOOL_BIO";
     ProgressBar progressBar;
-
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_card);
+        actionBar = getSupportActionBar();
         bioTextView = (TextView) findViewById(R.id.school_bio_text);
         Intent intent = getIntent();
         //получим данные в фоне
@@ -49,7 +51,7 @@ public class SchoolCard extends AppCompatActivity {
         Exception e = null;
         protected void onPreExecute() {
             progressBar.setVisibility(ProgressBar.VISIBLE);
-            //bioTextView.setText("Wait for data...");
+
         }
         @Override
         protected Void doInBackground(Void... voids) {
@@ -79,6 +81,7 @@ public class SchoolCard extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
            try {
+               actionBar.setTitle(schoolData.name);
                progressBar.setVisibility(ProgressBar.INVISIBLE);
                bioTextView.setVisibility(bioTextView.VISIBLE);
                bioTextView.setText(schoolData.bio);

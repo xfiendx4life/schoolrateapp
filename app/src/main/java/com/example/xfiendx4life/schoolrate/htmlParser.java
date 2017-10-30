@@ -72,7 +72,13 @@ class htmlParser {
         fullBio = fullBio.substring(index);
         fullBio = fullBio.replace("\n", System.getProperty("line.separator"));
 
-        cardData.name = name.text();
+        index = name.text().indexOf("«");
+        if (index != -1) {
+            cardData.name = name.text().substring(index);
+        }
+        else {
+            cardData.name = name.text();
+        }
         cardData.bio = fullBio;
         cardData.rating = Float.parseFloat(rating.text());
         cardData.picLink = image.attr("src");

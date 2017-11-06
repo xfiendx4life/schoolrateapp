@@ -58,7 +58,7 @@ class htmlParser {
         Elements bio = bioDiv.first().children();
         Element rating = doc.select("div.score").first();
         Elements prices = doc.select("ul.av-price>li>div.value");
-
+        Elements service_list = doc.select("ul.service-list").first().children();
         Elements pricesNames = doc.select("ul.av-price>li>div.title");
         //формируем текст
         String fullBio = "";
@@ -92,6 +92,26 @@ class htmlParser {
             }
         }
         cardData.prices = pricess;
+        for (Element e: service_list) {
+            if(e.children().last().text().contains("максимальный"))  {
+                cardData.maxStudents = Integer.parseInt(e.children().first().text());
+            }
+            if(e.children().last().text().contains("лицензия"))  {
+                cardData.licence = true;
+            }
+            if(e.children().last().text().contains("помесячная"))  {
+                cardData.monthlyPayment = true;
+            }
+            if(e.children().last().text().contains("филиалов"))  {
+                cardData.numberOfSchools = Integer.parseInt(e.children().first().text());
+            }
+            if(e.children().last().text().contains("для детей"))  {
+                cardData.engForChildren = true;
+            }
+            if(e.children().last().text().contains("пробный"))  {
+                cardData.firstFree = true;
+            }
+        }
 
         return cardData;
     }
